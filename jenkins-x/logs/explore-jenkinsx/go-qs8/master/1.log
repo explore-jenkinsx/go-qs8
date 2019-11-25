@@ -1,0 +1,86 @@
+
+Showing logs for build [32mexplore-jenkinsx-go-qs8-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-7krgb[0m
+{"level":"warn","ts":1574649919.0629125,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1574649919.0635185,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mexplore-jenkinsx-go-qs8-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-9dlg7[0m
+{"level":"warn","ts":1574649920.535445,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1574649920.5364647,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mexplore-jenkinsx-go-qs8-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mexplore-jenkinsx-go-qs8-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-explore-jenkinsx-go-qs8-master-9k44h[0m
+{"level":"warn","ts":1574649947.450295,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1574649947.6762319,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/explore-jenkinsx/go-qs8.git @ v0.0.1 in path /workspace/source"}
+
+Showing logs for build [32mexplore-jenkinsx-go-qs8-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:d823c01b83f7221460ffed98470a3781a58903b5
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mexplore-jenkinsx-go-qs8-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mexplore-jenkinsx-go-qs8-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-build[0m
+CGO_ENABLED=0 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/go-qs8 main.go
+
+Showing logs for build [32mexplore-jenkinsx-go-qs8-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] No base image, nothing to extract            
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0000] Taking snapshot of full filesystem...        
+[36mINFO[0m[0000] EXPOSE 8080                                  
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] ENTRYPOINT ["/go-qs8"]                       
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] COPY ./bin/ /                                
+[36mINFO[0m[0000] Taking snapshot of files...                  
+2019/11/25 02:45:57 pushed blob: sha256:fb1af9ad3cae9d4bf6a2bec423cc2b1064bb23063cae0570220b4a3453bac9ad
+2019/11/25 02:45:59 pushed blob: sha256:d7d28dcb40e43babf959898dba779e4a06a10f8c84bbeb9299f841489fd4a5c9
+2019/11/25 02:45:59 448958560840.dkr.ecr.us-east-1.amazonaws.com/explore-jenkinsx/go-qs8:0.0.1: digest: sha256:b689adbb23d70e44c70d570cc80b743a51cdb6aaa6841851858fabcf7b42b205 size: 428
+
+Showing logs for build [32mexplore-jenkinsx-go-qs8-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
+no CVE provider running in the current ******** namespace so skip adding image to be analysed
+
+Showing logs for build [32mexplore-jenkinsx-go-qs8-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source/charts/go-qs8 to an unshallow repository
+Generating change log from git ref 2bd464d814257d2cda25106b21561c48c4546bda => cc9bcbcbf4d4ac61eed7a97c74b405c10003e0b0
+Associating user x-0 in users.jenkins.io with email Brent.Laster@sas.com to git GitProvider user with login -0 as emails match
+Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
+WARNING: Failed to enrich commit d823c01b83f7221460ffed98470a3781a58903b5 with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+Finding issues in commit messages using git format
+WARNING: No release found for explore-jenkinsx/go-qs8 and tag v0.0.1 so creating a new release
+Updated the release information at https://github.com/explore-jenkinsx/go-qs8/releases/tag/v0.0.1
+generated: /workspace/source/charts/go-qs8/templates/release.yaml
+Created Release go-qs8-0-0-1 resource in namespace ********
+Updating PipelineActivity explore-jenkinsx-go-qs8-master-1 with version 0.0.1
+Updated PipelineActivities explore-jenkinsx-go-qs8-master-1 with release notes URL: https://github.com/explore-jenkinsx/go-qs8/releases/tag/v0.0.1
+
+Showing logs for build [32mexplore-jenkinsx-go-qs8-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file go-qs8-0.0.1.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 201 response: {"saved":true}
+
+Showing logs for build [32mexplore-jenkinsx-go-qs8-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
+WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/jx/issues/2410
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Promoting app go-qs8 version 0.0.1 to namespace ********-staging
+WARNING: Waiting for the fork of ***********/environment-roarerspring-staging to appear...
+Forked Git repository to https://github.com/***********/environment-roarerspring-staging
+Created Pull Request: https://github.com/explore-jenkinsx/environment-roarerspring-staging/pull/1
+Added label updatebot to Pull Request https://github.com/explore-jenkinsx/environment-roarerspring-staging/pull/1
+got git provider status pending from PR https://github.com/explore-jenkinsx/environment-roarerspring-staging/pull/1
+got git provider status pending from PR https://github.com/explore-jenkinsx/environment-roarerspring-staging/pull/1
+got git provider status pending from PR https://github.com/explore-jenkinsx/environment-roarerspring-staging/pull/1
+Pull Request https://github.com/explore-jenkinsx/environment-roarerspring-staging/pull/1 is merged at sha 8a53b45709a4c3e3ab9f67df07e308951f049b3e
+Pull Request merged but we are not waiting for the update pipeline to complete!
+WARNING: Could not find the service URL in namespace ********-staging for names go-qs8, ********-go-qs8, ********-staging-go-qs8
